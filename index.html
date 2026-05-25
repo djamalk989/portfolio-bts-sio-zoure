@@ -137,18 +137,13 @@ section:not(#accueil){padding:80px 5vw}
 
 /* COMPETENCES */
 #competences{background:var(--white)}
-.skgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.3rem;max-width:1000px;margin:0 auto}
-.skcat{background:var(--light);border-radius:14px;padding:1.6rem;border:1px solid var(--border)}
-.skhead{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
-.skico{width:38px;height:38px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.skico svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
-.skcname{font-size:.88rem;font-weight:700;color:var(--navy)}
-.sklist{display:flex;flex-direction:column;gap:.7rem}
-.skhd{display:flex;justify-content:space-between;align-items:center;margin-bottom:.28rem}
-.skn{font-size:.78rem;font-weight:500;color:var(--navy)}
-.skp{font-size:.72rem;font-weight:700;color:var(--blue)}
-.skbar{height:5px;background:var(--border);border-radius:50px;overflow:hidden}
-.skfill{height:100%;border-radius:50px;background:var(--grad);width:0;transition:width 1s ease}
+.sk-wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:2.5rem}
+.sk-group h3{font-size:.75rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--border)}
+.sk-pills{display:flex;flex-wrap:wrap;gap:.7rem}
+.sk-pill{display:flex;align-items:center;gap:.65rem;background:var(--light);border:1px solid var(--border);border-radius:10px;padding:.6rem 1.1rem;transition:.25s;cursor:default}
+.sk-pill:hover{border-color:var(--blue);background:var(--blue-light);transform:translateY(-2px);box-shadow:0 4px 12px rgba(37,99,235,.1)}
+.sk-pill img{width:24px;height:24px;object-fit:contain}
+.sk-pill span{font-size:.82rem;font-weight:600;color:var(--navy)}
 
 /* CONTACT */
 #contact{background:var(--grad);padding:80px 5vw}
@@ -364,49 +359,100 @@ footer strong{color:rgba(255,255,255,.65)}
     </div>
   </div>
   <div class="agrid">
-    <div class="ac fi"><div class="aimg">🛡️</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 1]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
-    <div class="ac fi"><div class="aimg">🔐</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 2]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
-    <div class="ac fi"><div class="aimg">🌐</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 3]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
-    <div class="ac fi"><div class="aimg">⚡</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 4]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
-    <div class="ac fi"><div class="aimg">🔧</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 5]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
-    <div class="ac fi"><div class="aimg">📡</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 6]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
+    <div class="ac fi">
+      <div class="aimg">🛡️</div>
+      <div class="abody">
+        <div class="ameta"><span class="adate">11/03/2026</span><span class="asrc">ANSSI</span></div>
+        <div class="atitle">Panorama de la cybermenace 2025 : la France sous pression</div>
+        <p class="adesc">L'ANSSI a traité 1 366 incidents confirmés en 2025. Les exfiltrations de données ont bondi à 196 cas, et 29 % des vulnérabilités ont été exploitées le jour même de leur publication, illustrant la rapidité des attaquants.</p>
+        <a href="https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2025/" target="_blank" class="alink">Lire l'article →</a>
+      </div>
+    </div>
+    <div class="ac fi">
+      <div class="aimg">🔒</div>
+      <div class="abody">
+        <div class="ameta"><span class="adate">22/03/2026</span><span class="asrc">ANSSI / DCOD</span></div>
+        <div class="atitle">Cybermenace 2025 : espionnage étatique et ransomwares en hausse</div>
+        <p class="adesc">Les groupes russes et chinois ont maintenu une pression constante sur les réseaux diplomatiques et infrastructures critiques. Les PME représentent 48 % des victimes de ransomwares, un chiffre qui ne baisse pas.</p>
+        <a href="https://dcod.ch/2026/03/22/bilan-cybermenace-2025-anssi/" target="_blank" class="alink">Lire l'article →</a>
+      </div>
+    </div>
+    <div class="ac fi">
+      <div class="aimg">💣</div>
+      <div class="abody">
+        <div class="ameta"><span class="adate">12/01/2026</span><span class="asrc">AVTIS</span></div>
+        <div class="atitle">Cybersécurité 2025 : les nouvelles attaques ciblant les entreprises françaises</div>
+        <p class="adesc">Les intrusions via Active Directory ont augmenté de 37 % en un an. Les attaques « MFA fatigue » explosent, et 63 % des incidents commencent par un compte utilisateur compromis. Le coût moyen d'un arrêt du SI dépasse 200 000 € pour une PME.</p>
+        <a href="https://avtis.fr/cybersecurite-2025-les-nouvelles-attaques-ciblant-les-entreprises-francaises/" target="_blank" class="alink">Lire l'article →</a>
+      </div>
+    </div>
+    <div class="ac fi">
+      <div class="aimg">🏴‍☠️</div>
+      <div class="abody">
+        <div class="ameta"><span class="adate">26/02/2026</span><span class="asrc">Invictis</span></div>
+        <div class="atitle">Cyberattaque France 2025 : bilan d'une année record</div>
+        <p class="adesc">Près de 1,8 million de comptes compromis en 6 mois. Les pirates exploitent désormais les prestataires tiers comme chevaux de Troie. Free, Viamedis, France Travail : aucun secteur n'a été épargné en 2025.</p>
+        <a href="https://invictis.fr/cyberattaque-france-2025-bilan/" target="_blank" class="alink">Lire l'article →</a>
+      </div>
+    </div>
+    <div class="ac fi">
+      <div class="aimg">🇪🇺</div>
+      <div class="abody">
+        <div class="ameta"><span class="adate">19/10/2024</span><span class="asrc">Le Monde Informatique</span></div>
+        <div class="atitle">Directive NIS2 : les entreprises françaises commencent seulement à se préparer</div>
+        <p class="adesc">95 % des entreprises françaises ont subi des incidents que la conformité NIS2 aurait pu prévenir. Pourtant, une majorité reste mal préparée. La directive impose de nouvelles obligations de sécurité aux secteurs critiques comme la santé, l'énergie et les télécoms.</p>
+        <a href="https://www.lemondeinformatique.fr/actualites/lire-directive-nis2-les-entreprises-francaises-commencent-seulement-a-se-preparer-95029.html" target="_blank" class="alink">Lire l'article →</a>
+      </div>
+    </div>
+    <div class="ac fi">
+      <div class="aimg">🏥</div>
+      <div class="abody">
+        <div class="ameta"><span class="adate">25/03/2026</span><span class="asrc">Nameshield</span></div>
+        <div class="atitle">Panorama ANSSI 2025 : hôpitaux et écoles, nouvelles cibles prioritaires</div>
+        <p class="adesc">Les établissements de santé et scolaires ont été durement touchés en 2025. Le volume global des attaques par rançongiciel a légèrement baissé (128 cas), mais les exfiltrations de données, elles, ont fortement augmenté.</p>
+        <a href="https://blog.nameshield.com/fr/2026/03/25/que-retient-on-du-panorama-de-la-cybermenace-2025-de-l-anssi/" target="_blank" class="alink">Lire l'article →</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- COMPETENCES -->
 <section id="competences">
   <div class="sh fi"><span class="stag">Skills</span><h2>Mes Compétences</h2><p>Technologies et savoir-faire acquis durant ma formation.</p><div class="div"></div></div>
-  <div class="skgrid">
-    <div class="skcat fi d1">
-      <div class="skhead"><div class="skico"><svg viewBox="0 0 24 24"><path d="M5 12h14M5 12l4-4m-4 4l4 4"/></svg></div><span class="skcname">Réseaux</span></div>
-      <div class="sklist">
-        <div><div class="skhd"><span class="skn">Cisco / Packet Tracer</span><span class="skp">80%</span></div><div class="skbar"><div class="skfill" data-w="80"></div></div></div>
-        <div><div class="skhd"><span class="skn">DHCP / DNS</span><span class="skp">75%</span></div><div class="skbar"><div class="skfill" data-w="75"></div></div></div>
-        <div><div class="skhd"><span class="skn">TCP/IP &amp; Protocoles</span><span class="skp">70%</span></div><div class="skbar"><div class="skfill" data-w="70"></div></div></div>
+  <div class="sk-wrap fi">
+    <div class="sk-group">
+      <h3>🌐 Réseaux</h3>
+      <div class="sk-pills">
+        <div class="sk-pill"><img src="https://cdn.simpleicons.org/cisco/049fd4" alt="Cisco"><span>Cisco</span></div>
+        <div class="sk-pill"><img src="https://img.icons8.com/color/48/network.png" alt="DHCP"><span>DHCP / DNS</span></div>
+        <div class="sk-pill"><img src="https://img.icons8.com/color/48/lan.png" alt="TCP/IP"><span>TCP/IP</span></div>
+        <div class="sk-pill"><img src="https://img.icons8.com/color/48/wi-fi.png" alt="Wi-Fi"><span>Wi-Fi</span></div>
       </div>
     </div>
-    <div class="skcat fi d2">
-      <div class="skhead"><div class="skico"><svg viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div><span class="skcname">Systèmes</span></div>
-      <div class="sklist">
-        <div><div class="skhd"><span class="skn">Windows Server</span><span class="skp">80%</span></div><div class="skbar"><div class="skfill" data-w="80"></div></div></div>
-        <div><div class="skhd"><span class="skn">Active Directory</span><span class="skp">75%</span></div><div class="skbar"><div class="skfill" data-w="75"></div></div></div>
-        <div><div class="skhd"><span class="skn">Linux</span><span class="skp">70%</span></div><div class="skbar"><div class="skfill" data-w="70"></div></div></div>
+    <div class="sk-group">
+      <h3>🖥️ Systèmes</h3>
+      <div class="sk-pills">
+        <div class="sk-pill"><img src="https://cdn.simpleicons.org/windows/0078d4" alt="Windows"><span>Windows Server</span></div>
+        <div class="sk-pill"><img src="https://cdn.simpleicons.org/linux/FCC624" alt="Linux"><span>Linux</span></div>
+        <div class="sk-pill"><img src="https://cdn.simpleicons.org/debian/A81D33" alt="Debian"><span>Debian</span></div>
+        <div class="sk-pill"><img src="https://img.icons8.com/color/48/active-directory.png" alt="AD"><span>Active Directory</span></div>
       </div>
     </div>
-    <div class="skcat fi d1">
-      <div class="skhead"><div class="skico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div><span class="skcname">Virtualisation</span></div>
-      <div class="sklist">
-        <div><div class="skhd"><span class="skn">VMware Workstation</span><span class="skp">75%</span></div><div class="skbar"><div class="skfill" data-w="75"></div></div></div>
-        <div><div class="skhd"><span class="skn">Zabbix</span><span class="skp">60%</span></div><div class="skbar"><div class="skfill" data-w="60"></div></div></div>
-        <div><div class="skhd"><span class="skn">GLPI</span><span class="skp">65%</span></div><div class="skbar"><div class="skfill" data-w="65"></div></div></div>
+    <div class="sk-group">
+      <h3>☁️ Virtualisation &amp; Outils</h3>
+      <div class="sk-pills">
+        <div class="sk-pill"><img src="https://cdn.simpleicons.org/vmware/607078" alt="VMware"><span>VMware</span></div>
+        <div class="sk-pill"><img src="https://cdn.simpleicons.org/zabbix/CC0000" alt="Zabbix"><span>Zabbix</span></div>
+        <div class="sk-pill"><img src="https://img.icons8.com/color/48/help-desk.png" alt="GLPI"><span>GLPI</span></div>
+        <div class="sk-pill"><img src="https://cdn.simpleicons.org/proxmox/E57000" alt="Virtualisation"><span>Virtualisation</span></div>
       </div>
     </div>
-    <div class="skcat fi d2">
-      <div class="skhead"><div class="skico"><svg viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><span class="skcname">Développement</span></div>
-      <div class="sklist">
-        <div><div class="skhd"><span class="skn">Python</span><span class="skp">60%</span></div><div class="skbar"><div class="skfill" data-w="60"></div></div></div>
-        <div><div class="skhd"><span class="skn">Java</span><span class="skp">50%</span></div><div class="skbar"><div class="skfill" data-w="50"></div></div></div>
-        <div><div class="skhd"><span class="skn">HTML / CSS</span><span class="skp">65%</span></div><div class="skbar"><div class="skfill" data-w="65"></div></div></div>
+    <div class="sk-group">
+      <h3>💻 Développement</h3>
+      <div class="sk-pills">
+        <div class="sk-pill"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python"><span>Python</span></div>
+        <div class="sk-pill"><img src="https://cdn.simpleicons.org/java/007396" alt="Java"><span>Java</span></div>
+        <div class="sk-pill"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML"><span>HTML / CSS</span></div>
       </div>
     </div>
   </div>
@@ -450,8 +496,6 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
-const skObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.skfill').forEach(b=>b.style.width=b.dataset.w+'%');skObs.unobserve(e.target)}})},{threshold:.3});
-document.querySelectorAll('.skcat').forEach(el=>skObs.observe(el));
 window.addEventListener('scroll',()=>{if(mob.classList.contains('open'))cm()},{passive:true});
 </script>
 </body>
