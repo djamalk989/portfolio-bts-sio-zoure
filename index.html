@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Djamarou Zoure – Portfolio BTS SIO SISR</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#2563eb;--blue-light:#eff6ff;
+  --navy:#0f172a;--gray:#64748b;--light:#f8fafc;--white:#fff;
+  --border:#e2e8f0;
+  --grad:linear-gradient(135deg,#1e3a8a 0%,#2563eb 55%,#0ea5e9 100%);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--light);color:var(--navy);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);height:65px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;transition:.3s}
+nav.scrolled{box-shadow:0 4px 20px rgba(37,99,235,.1)}
+.brand{font-size:1.1rem;font-weight:700;color:var(--blue);text-decoration:none}
+.brand span{color:var(--navy)}
+.nl{display:flex;gap:3px;list-style:none}
+.nl a{text-decoration:none;color:var(--gray);font-size:.8rem;font-weight:500;padding:.38rem .8rem;border-radius:6px;transition:.2s}
+.nl a:hover,.nl a.active{background:var(--blue-light);color:var(--blue)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:4px}
+.burger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s;display:block}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob{display:none;position:fixed;top:65px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:1rem 5vw;z-index:999;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.mob.open{display:block}
+.mob a{display:block;padding:.65rem 0;color:var(--navy);text-decoration:none;font-size:.9rem;font-weight:500;border-bottom:1px solid var(--border)}
+.mob a:last-child{border:none}
+
+/* HERO */
+#accueil{min-height:100vh;background:var(--grad);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5vw 60px;position:relative;overflow:hidden}
+#accueil::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hc{position:relative;z-index:1;animation:fu .8s ease both}
+@keyframes fu{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.hbadge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.75rem;font-weight:600;padding:.4rem 1.2rem;border-radius:50px;margin-bottom:1.5rem;letter-spacing:.1em;text-transform:uppercase}
+.hc h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:700;color:#fff;line-height:1.05;margin-bottom:1rem;letter-spacing:-.02em}
+.hc h1 span{color:#bfdbfe}
+.hsub{font-size:clamp(.88rem,2vw,1.1rem);color:rgba(255,255,255,.82);font-weight:300;max-width:540px;margin:0 auto 2.5rem;line-height:1.75}
+.hbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.bw{background:#fff;color:var(--blue);padding:.78rem 1.8rem;border-radius:8px;font-weight:600;font-size:.86rem;text-decoration:none;transition:.25s;border:2px solid #fff}
+.bw:hover{background:transparent;color:#fff}
+.bo{background:transparent;color:#fff;padding:.78rem 1.8rem;border-radius:8px;font-weight:600;font-size:.86rem;text-decoration:none;transition:.25s;border:2px solid rgba(255,255,255,.5)}
+.bo:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.scroll-h{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.45);font-size:.7rem;letter-spacing:.06em}
+.scroll-h::after{content:'';width:1px;height:34px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:p 2s ease infinite}
+@keyframes p{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* SECTIONS */
+section:not(#accueil){padding:80px 5vw}
+.sh{text-align:center;margin-bottom:3.5rem}
+.stag{display:inline-block;background:var(--blue-light);color:var(--blue);font-size:.7rem;font-weight:700;padding:.32rem 1rem;border-radius:50px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
+.sh h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:var(--navy);margin-bottom:.6rem}
+.sh p{color:var(--gray);font-size:.9rem;max-width:500px;margin:0 auto;line-height:1.7}
+.div{width:48px;height:3px;background:var(--grad);border-radius:3px;margin:.8rem auto 0}
+
+/* FADE */
+.fi{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.fi.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* PROFIL */
+#profil{background:var(--white)}
+.pg{display:grid;grid-template-columns:220px 1fr;gap:3.5rem;align-items:start;max-width:1000px;margin:0 auto}
+.pp{text-align:center}
+.pp-img{width:175px;height:210px;border-radius:14px;object-fit:cover;object-position:center top;border:3px solid #bfdbfe;display:block;margin:0 auto 1.1rem;background:var(--blue-light)}
+.pp-placeholder{width:175px;height:210px;background:var(--blue-light);border-radius:14px;border:3px solid #bfdbfe;display:flex;align-items:center;justify-content:center;margin:0 auto 1.1rem;font-size:.75rem;color:var(--blue);text-align:center}
+.pname{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.2rem}
+.prole{font-size:.78rem;color:var(--blue);font-weight:500;margin-bottom:1.1rem}
+.plinks{display:flex;flex-direction:column;gap:.5rem}
+.plink{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--gray);font-size:.78rem;transition:.2s}
+.plink:hover{color:var(--blue)}
+.plink svg{width:14px;height:14px;flex-shrink:0}
+.cvbtn{display:block;margin-top:1.1rem;background:var(--grad);color:#fff;padding:.65rem 1rem;border-radius:8px;font-size:.78rem;font-weight:600;text-decoration:none;text-align:center;transition:.2s}
+.cvbtn:hover{opacity:.85;transform:translateY(-2px)}
+.pi h3{font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.pintro{color:var(--gray);font-size:.88rem;line-height:1.85;margin-bottom:2rem}
+.tl{display:flex;flex-direction:column}
+.tl-item{display:flex;gap:1rem;padding-bottom:1.5rem;position:relative}
+.tl-item:not(:last-child)::after{content:'';position:absolute;left:17px;top:34px;bottom:0;width:2px;background:var(--border)}
+.tld{width:34px;height:34px;border-radius:50%;background:var(--blue-light);border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1}
+.tld svg{width:14px;height:14px;stroke:var(--blue);fill:none}
+.tlyr{font-size:.68rem;color:var(--blue);font-weight:700;letter-spacing:.04em;margin-bottom:.12rem}
+.tlt{font-size:.88rem;font-weight:600;color:var(--navy);margin-bottom:.18rem}
+.tldesc{font-size:.78rem;color:var(--gray);line-height:1.5}
+
+/* PROJETS */
+#projets{background:var(--light)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto}
+.pc{background:var(--white);border-radius:14px;border:1px solid var(--border);overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.pc:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(37,99,235,.13)}
+.pimg{height:160px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:2.8rem}
+.pbody{padding:1.4rem;flex:1;display:flex;flex-direction:column}
+.ptags{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.85rem}
+.tag{font-size:.68rem;font-weight:700;padding:.2rem .65rem;border-radius:50px;background:var(--blue-light);color:var(--blue)}
+.ptitle{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.pdesc{font-size:.81rem;color:var(--gray);line-height:1.7;flex:1;margin-bottom:1rem}
+.plink{display:inline-flex;align-items:center;gap:.3rem;font-size:.81rem;font-weight:600;color:var(--blue);text-decoration:none;transition:.2s}
+.plink:hover{gap:.55rem}
+.plink svg{width:13px;height:13px}
+
+/* E5 */
+#e5{background:var(--white)}
+.egrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.3rem;max-width:1000px;margin:0 auto}
+.ec{background:var(--light);border-radius:14px;padding:1.7rem;border:1px solid var(--border);transition:.3s}
+.ec:hover{box-shadow:0 8px 28px rgba(37,99,235,.1);transform:translateY(-3px)}
+.eico{width:46px;height:46px;background:var(--grad);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.eico svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2}
+.ec h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.ec p{font-size:.8rem;color:var(--gray);line-height:1.7;margin-bottom:.85rem}
+.ec a{font-size:.78rem;font-weight:600;color:var(--blue);text-decoration:none}
+.ec a:hover{text-decoration:underline}
+
+/* VEILLE */
+#veille{background:var(--light)}
+.vi{max-width:660px;margin:0 auto 2.2rem;text-align:center;color:var(--gray);font-size:.87rem;line-height:1.8}
+.tools{display:flex;justify-content:center;flex-wrap:wrap;gap:.45rem;margin-top:.85rem}
+.tool{background:var(--white);border:1px solid var(--border);color:var(--navy);font-size:.75rem;font-weight:500;padding:.32rem .85rem;border-radius:50px}
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem;max-width:1000px;margin:0 auto}
+.ac{background:var(--white);border-radius:12px;border:1px solid var(--border);overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.ac:hover{box-shadow:0 8px 24px rgba(37,99,235,.1);transform:translateY(-3px)}
+.aimg{height:120px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+.abody{padding:1rem;flex:1;display:flex;flex-direction:column}
+.ameta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.adate{font-size:.7rem;color:var(--gray)}
+.asrc{font-size:.68rem;font-weight:700;background:var(--blue-light);color:var(--blue);padding:.16rem .55rem;border-radius:50px}
+.atitle{font-size:.84rem;font-weight:600;color:var(--navy);margin-bottom:.32rem;line-height:1.4}
+.adesc{font-size:.76rem;color:var(--gray);line-height:1.6;flex:1;margin-bottom:.7rem}
+.alink{font-size:.76rem;font-weight:600;color:var(--blue);text-decoration:none;transition:.15s}
+.alink:hover{text-decoration:underline}
+
+/* COMPETENCES */
+#competences{background:var(--white)}
+.skgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.3rem;max-width:1000px;margin:0 auto}
+.skcat{background:var(--light);border-radius:14px;padding:1.6rem;border:1px solid var(--border)}
+.skhead{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+.skico{width:38px;height:38px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.skico svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+.skcname{font-size:.88rem;font-weight:700;color:var(--navy)}
+.sklist{display:flex;flex-direction:column;gap:.7rem}
+.skhd{display:flex;justify-content:space-between;align-items:center;margin-bottom:.28rem}
+.skn{font-size:.78rem;font-weight:500;color:var(--navy)}
+.skp{font-size:.72rem;font-weight:700;color:var(--blue)}
+.skbar{height:5px;background:var(--border);border-radius:50px;overflow:hidden}
+.skfill{height:100%;border-radius:50px;background:var(--grad);width:0;transition:width 1s ease}
+
+/* CONTACT */
+#contact{background:var(--grad);padding:80px 5vw}
+.cti{max-width:650px;margin:0 auto;text-align:center}
+.cti .stag{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.cti h2{color:#fff;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin:.5rem 0 .6rem}
+.cti p{color:rgba(255,255,255,.8);font-size:.88rem;line-height:1.7;max-width:460px;margin:0 auto}
+.ctcards{display:flex;justify-content:center;flex-wrap:wrap;gap:.9rem;margin:2rem 0}
+.ctcard{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:1.3rem 1.6rem;text-align:center;transition:.25s;text-decoration:none;min-width:148px}
+.ctcard:hover{background:rgba(255,255,255,.22);transform:translateY(-3px)}
+.ctcard svg{width:24px;height:24px;margin:0 auto .45rem;display:block}
+.ctcard p{font-size:.72rem;color:rgba(255,255,255,.65);margin-bottom:.12rem}
+.ctcard strong{font-size:.8rem;color:#fff;font-weight:600;word-break:break-all}
+
+/* FOOTER */
+footer{background:var(--navy);padding:1.6rem 5vw;text-align:center}
+footer p{color:rgba(255,255,255,.4);font-size:.76rem}
+footer strong{color:rgba(255,255,255,.65)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nl{display:none}.burger{display:flex}
+  .pg{grid-template-columns:1fr}
+  .pp-img,.pp-placeholder{width:150px;height:185px}
+}
+@media(max-width:520px){
+  section:not(#accueil){padding:56px 5vw}
+  .pgrid,.agrid,.skgrid,.egrid{grid-template-columns:1fr}
+  .ctcards{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#accueil" class="brand">DZ<span>.</span></a>
+  <ul class="nl">
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#profil">Mon Profil</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#e5">E5</a></li>
+    <li><a href="#veille">Veille (E6)</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob" id="mob">
+  <a href="#accueil" onclick="cm()">Accueil</a>
+  <a href="#profil" onclick="cm()">Mon Profil</a>
+  <a href="#projets" onclick="cm()">Projets</a>
+  <a href="#e5" onclick="cm()">E5</a>
+  <a href="#veille" onclick="cm()">Veille (E6)</a>
+  <a href="#competences" onclick="cm()">Compétences</a>
+  <a href="#contact" onclick="cm()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="accueil">
+  <div class="hc">
+    <div class="hbadge">BTS SIO – Option SISR</div>
+    <h1>Djamarou<br><span>Zoure</span></h1>
+    <p class="hsub">Apprenti Technicien Système et Réseau — en recherche d'alternance 12 ou 24 mois dans les domaines systèmes, réseaux et cybersécurité.</p>
+    <div class="hbtns">
+      <a href="#projets" class="bw">Voir mes projets</a>
+      <a href="#contact" class="bo">Me contacter</a>
+    </div>
+  </div>
+  <div class="scroll-h">Défiler</div>
+</section>
+
+<!-- PROFIL -->
+<section id="profil">
+  <div class="sh fi"><span class="stag">À propos</span><h2>Mon Profil</h2><div class="div"></div></div>
+  <div class="pg fi">
+    <div class="pp">
+      <img src="photo.png" class="pp-img" alt="Djamarou Zoure">
+      <div class="pname">Djamarou Zoure</div>
+      <div class="prole">Apprenti Technicien Système &amp; Réseau</div>
+      <div class="plinks">
+        <a href="mailto:djamalk989@gmail.com" class="plink">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          djamalk989@gmail.com
+        </a>
+        <a href="tel:0695452514" class="plink">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          06 95 45 25 14
+        </a>
+        <a href="#" class="plink">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Ézanville, 95460
+        </a>
+      </div>
+      <a href="CV_Djamarou_zoure.pdf" download class="cvbtn">⬇ Télécharger mon CV</a>
+    </div>
+    <div class="pi">
+      <h3>Qui suis-je ?</h3>
+      <p class="pintro">Étudiant en 2ᵉ année de BTS SIO option SISR à Nexa Digital School (Paris), je suis passionné par les réseaux, les systèmes et la cybersécurité. Titulaire du Permis B, je recherche une alternance de 12 à 24 mois pour contribuer à des projets techniques concrets et évoluer professionnellement.</p>
+      <h3 style="margin-bottom:1.1rem">Mon Parcours</h3>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tld"><svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5zm0 6v-6"/></svg></div>
+          <div>
+            <div class="tlyr">Depuis sept. 2025</div>
+            <div class="tlt">BTS SIO – Option SISR</div>
+            <div class="tldesc">Nexa Digital School — Paris</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tld"><svg viewBox="0 0 24 24"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+          <div>
+            <div class="tlyr">Sept. 2025 – Mars 2026</div>
+            <div class="tlt">Stage — Administrateur Réseaux &amp; Systèmes</div>
+            <div class="tldesc">Nexa Digital School, Paris — Gestion AD, configuration postes, virtualisation</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tld"><svg viewBox="0 0 24 24"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg></div>
+          <div>
+            <div class="tlyr">Depuis janv. 2025</div>
+            <div class="tlt">Photographe / Chargé de communication visuelle</div>
+            <div class="tldesc">La mémère &amp; Glass, Paris — Création de contenus, direction de shootings</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tld"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
+          <div>
+            <div class="tlyr">Janv. 2021 – Janv. 2025</div>
+            <div class="tlt">Opérateur de commandes</div>
+            <div class="tldesc">Galec-Scapnor, Bruyères-sur-Oise</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tld"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <div>
+            <div class="tlyr">Sept. 2022 – Juin 2024</div>
+            <div class="tlt">BTS Fluides Énergies Domotique</div>
+            <div class="tldesc">Lycée Galilée, Cergy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="sh fi"><span class="stag">Réalisations</span><h2>Mes Projets</h2><p>Projets réalisés durant ma formation BTS SIO SISR.</p><div class="div"></div></div>
+  <div class="pgrid">
+    <div class="pc fi d1">
+      <div class="pimg">🖧</div>
+      <div class="pbody">
+        <div class="ptags"><span class="tag">Réseau</span><span class="tag">Cisco</span><span class="tag">VLAN</span></div>
+        <div class="ptitle">Projet 1 – [Titre à remplir]</div>
+        <p class="pdesc">[Décris ton premier projet : objectif, contexte, technologies utilisées et résultats obtenus.]</p>
+        <a href="#" class="plink">Voir le projet <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+      </div>
+    </div>
+    <div class="pc fi d2">
+      <div class="pimg">🔒</div>
+      <div class="pbody">
+        <div class="ptags"><span class="tag">Sécurité</span><span class="tag">Active Directory</span><span class="tag">Windows Server</span></div>
+        <div class="ptitle">Projet 2 – [Titre à remplir]</div>
+        <p class="pdesc">[Décris ton deuxième projet : objectif, contexte, technologies utilisées et résultats obtenus.]</p>
+        <a href="#" class="plink">Voir le projet <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- E5 -->
+<section id="e5">
+  <div class="sh fi"><span class="stag">Épreuve E5</span><h2>Situations Professionnelles</h2><p>Situations retenues pour l'épreuve E5 du BTS SIO.</p><div class="div"></div></div>
+  <div class="egrid">
+    <div class="ec fi d1">
+      <div class="eico"><svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.59c.37 0 .72.15.98.41l4.01 4.01c.26.26.41.61.41.98V19a2 2 0 01-2 2z"/></svg></div>
+      <h3>Situation 1 – [Titre]</h3>
+      <p>[Contexte, activités réalisées et compétences mobilisées.]</p>
+      <a href="#">Voir la fiche ↗</a>
+    </div>
+    <div class="ec fi d2">
+      <div class="eico"><svg viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg></div>
+      <h3>Situation 2 – [Titre]</h3>
+      <p>[Contexte, activités réalisées et compétences mobilisées.]</p>
+      <a href="#">Voir la fiche ↗</a>
+    </div>
+    <div class="ec fi d1">
+      <div class="eico"><svg viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>Situation 3 – [Titre]</h3>
+      <p>[Contexte, activités réalisées et compétences mobilisées.]</p>
+      <a href="#">Voir la fiche ↗</a>
+    </div>
+    <div class="ec fi d2">
+      <div class="eico"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+      <h3>Situation 4 – [Titre]</h3>
+      <p>[Contexte, activités réalisées et compétences mobilisées.]</p>
+      <a href="#">Voir la fiche ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- VEILLE -->
+<section id="veille">
+  <div class="sh fi"><span class="stag">Épreuve E6</span><h2>Veille Technologique</h2><div class="div"></div></div>
+  <div class="vi fi">
+    <p>Pour ma veille technologique, j'ai choisi le thème de la <strong>cybersécurité des réseaux</strong>. J'utilise Google Alertes, l'ANSSI et Le Monde Informatique pour rester informé des dernières actualités du secteur.</p>
+    <div class="tools">
+      <span class="tool">🔔 Google Alertes</span>
+      <span class="tool">🛡️ ANSSI</span>
+      <span class="tool">💻 Le Monde Informatique</span>
+      <span class="tool">📰 ZDNet</span>
+    </div>
+  </div>
+  <div class="agrid">
+    <div class="ac fi"><div class="aimg">🛡️</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 1]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
+    <div class="ac fi"><div class="aimg">🔐</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 2]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
+    <div class="ac fi"><div class="aimg">🌐</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 3]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
+    <div class="ac fi"><div class="aimg">⚡</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 4]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
+    <div class="ac fi"><div class="aimg">🔧</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 5]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
+    <div class="ac fi"><div class="aimg">📡</div><div class="abody"><div class="ameta"><span class="adate">JJ/MM/AAAA</span><span class="asrc">Source</span></div><div class="atitle">[Titre article 6]</div><p class="adesc">[Résumé en 2-3 phrases.]</p><a href="#" class="alink">Lire l'article →</a></div></div>
+  </div>
+</section>
+
+<!-- COMPETENCES -->
+<section id="competences">
+  <div class="sh fi"><span class="stag">Skills</span><h2>Mes Compétences</h2><p>Technologies et savoir-faire acquis durant ma formation.</p><div class="div"></div></div>
+  <div class="skgrid">
+    <div class="skcat fi d1">
+      <div class="skhead"><div class="skico"><svg viewBox="0 0 24 24"><path d="M5 12h14M5 12l4-4m-4 4l4 4"/></svg></div><span class="skcname">Réseaux</span></div>
+      <div class="sklist">
+        <div><div class="skhd"><span class="skn">Cisco / Packet Tracer</span><span class="skp">80%</span></div><div class="skbar"><div class="skfill" data-w="80"></div></div></div>
+        <div><div class="skhd"><span class="skn">DHCP / DNS</span><span class="skp">75%</span></div><div class="skbar"><div class="skfill" data-w="75"></div></div></div>
+        <div><div class="skhd"><span class="skn">TCP/IP &amp; Protocoles</span><span class="skp">70%</span></div><div class="skbar"><div class="skfill" data-w="70"></div></div></div>
+      </div>
+    </div>
+    <div class="skcat fi d2">
+      <div class="skhead"><div class="skico"><svg viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div><span class="skcname">Systèmes</span></div>
+      <div class="sklist">
+        <div><div class="skhd"><span class="skn">Windows Server</span><span class="skp">80%</span></div><div class="skbar"><div class="skfill" data-w="80"></div></div></div>
+        <div><div class="skhd"><span class="skn">Active Directory</span><span class="skp">75%</span></div><div class="skbar"><div class="skfill" data-w="75"></div></div></div>
+        <div><div class="skhd"><span class="skn">Linux</span><span class="skp">70%</span></div><div class="skbar"><div class="skfill" data-w="70"></div></div></div>
+      </div>
+    </div>
+    <div class="skcat fi d1">
+      <div class="skhead"><div class="skico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div><span class="skcname">Virtualisation</span></div>
+      <div class="sklist">
+        <div><div class="skhd"><span class="skn">VMware Workstation</span><span class="skp">75%</span></div><div class="skbar"><div class="skfill" data-w="75"></div></div></div>
+        <div><div class="skhd"><span class="skn">Zabbix</span><span class="skp">60%</span></div><div class="skbar"><div class="skfill" data-w="60"></div></div></div>
+        <div><div class="skhd"><span class="skn">GLPI</span><span class="skp">65%</span></div><div class="skbar"><div class="skfill" data-w="65"></div></div></div>
+      </div>
+    </div>
+    <div class="skcat fi d2">
+      <div class="skhead"><div class="skico"><svg viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><span class="skcname">Développement</span></div>
+      <div class="sklist">
+        <div><div class="skhd"><span class="skn">Python</span><span class="skp">60%</span></div><div class="skbar"><div class="skfill" data-w="60"></div></div></div>
+        <div><div class="skhd"><span class="skn">Java</span><span class="skp">50%</span></div><div class="skbar"><div class="skfill" data-w="50"></div></div></div>
+        <div><div class="skhd"><span class="skn">HTML / CSS</span><span class="skp">65%</span></div><div class="skbar"><div class="skfill" data-w="65"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="cti fi">
+    <span class="stag">Contact</span>
+    <h2>Me Contacter</h2>
+    <p>Alternance, stage ou question ? N'hésite pas à me joindre !</p>
+    <div class="ctcards">
+      <a href="mailto:djamalk989@gmail.com" class="ctcard">
+        <svg fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <p>Email</p><strong>djamalk989@gmail.com</strong>
+      </a>
+      <a href="tel:0695452514" class="ctcard">
+        <svg fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <p>Téléphone</p><strong>06 95 45 25 14</strong>
+      </a>
+      <a href="#" class="ctcard">
+        <svg fill="white" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        <p>LinkedIn</p><strong>Djamarou Zoure</strong>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2025 <strong>Djamarou Zoure</strong> — Portfolio BTS SIO SISR — Nexa Digital School</p></footer>
+
+<script>
+const burger=document.getElementById('burger'),mob=document.getElementById('mob');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');mob.classList.toggle('open')});
+function cm(){burger.classList.remove('open');mob.classList.remove('open')}
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>50);
+  const ids=['accueil','profil','projets','e5','veille','competences','contact'];
+  let cur='';
+  ids.forEach(id=>{const s=document.getElementById(id);if(s&&scrollY>=s.offsetTop-90)cur=id});
+  document.querySelectorAll('.nl a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+const skObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.skfill').forEach(b=>b.style.width=b.dataset.w+'%');skObs.unobserve(e.target)}})},{threshold:.3});
+document.querySelectorAll('.skcat').forEach(el=>skObs.observe(el));
+window.addEventListener('scroll',()=>{if(mob.classList.contains('open'))cm()},{passive:true});
+</script>
+</body>
+</html>
